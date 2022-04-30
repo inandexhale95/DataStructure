@@ -113,6 +113,7 @@ namespace BinaryTree
             while (node != null || stack.Count > 0)
             {
                 // Left의 끝 노드까지 스택에 저장
+                // 현재 노드를 추가하고 왼쪽 노드로 이동한다.
                 while (node != null)
                 {
                     stack.Push(node);
@@ -135,6 +136,8 @@ namespace BinaryTree
 
             while (node != null || stack.Count > 0)
             {
+                // 오른쪽 노드를 Push하고 현재 노드를 Push한다. 오른쪽 노드가 없을 경우 왼쪽 노드로 이동한다.
+                // 순서 : 오른쪽 -> 현재 -> 왼쪽이동
                 while (node != null)
                 {
                     if (node.Right != null)
@@ -148,6 +151,9 @@ namespace BinaryTree
 
                 node = stack.Pop();
 
+                // 현재 노드의 오른쪽 노드가 스택의 Peek와 같다면
+                // 스택의 최상단인 오른쪽 노드를 pop하고 현재 노드를 스택에 다시 넣는다.
+                // 그리고 오른쪽으로 이동한다.
                 if (node.Right != null && 0 < stack.Count && node.Right == stack.Peek())
                 {
                     var right = stack.Pop();

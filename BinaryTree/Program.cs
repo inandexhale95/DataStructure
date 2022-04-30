@@ -63,7 +63,7 @@ namespace BinaryTree
 
                 Console.WriteLine(result.Data);
             }
-            LeastCommonAncestor();
+            // LeastCommonAncestor();
         }
 
         /*
